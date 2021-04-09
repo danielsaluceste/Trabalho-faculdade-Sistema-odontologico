@@ -197,6 +197,58 @@
 					</div>
 
 					<br>
+
+					<div style="display: flex;">
+
+						<div class="control-group" style="width: 49%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>RG</label>
+								<input type="text" id="rgid" name="rg" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="RG" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>CPF</label>
+								<input type="text" id="cpfid" name="cpf" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="CPF" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Estado Civil</label>
+								<input type="text" id="estadocivilid" name="estadocivil" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Estado Civil" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<br>
+
+					<div style="display: flex;">
+
+						<div class="control-group" style="width: 49%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Naturalidade</label>
+								<input type="text" id="naturalidade_pacienteid" name="naturalidade_paciente" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Naturalidade" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Estado</label>
+								<input type="text" id="estado_naturalidadefid" name="estado_naturalidade" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Estado" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<br>
 					<br>
 
 					<h4 for="filiacao">Filiação</h4>
