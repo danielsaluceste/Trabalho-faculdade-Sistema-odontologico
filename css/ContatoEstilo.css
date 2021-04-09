@@ -1,0 +1,62 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+form {
+    font-family: Verdana,Tahoma,sans-serif;
+    font-size: 15px;
+    background-color: #FFF;
+    max-width: 500px;
+}/*BACKGROUND*/
+
+h1 {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: #000;;
+}/*TITULO*/
+
+form label {
+    margin-left: 20px;
+    color: #000;
+    font-weight: bold;
+}/*NOME DOS TITULOS*/
+
+input, textarea {
+    width: 500px;
+    padding: 10px;
+    color: black;
+    margin-left: 20px;
+    margin-top: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+}
+
+input:hover, textarea:hover, input:focus, textarea:focus {
+    border-color: #000066;
+    background-color: #FFF;
+    color: black;
+    font-weight: bold;
+}/*EDICAO DE CAMPO*/
+
+.enviar {
+    background-color: #FFF;
+    height: 40px;
+    width: 100px;
+    font-weight: bold;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid;
+    color: black;
+}
+
+textarea {
+    width: 500px;
+    height: 120px;
+    line-height: 20px;
+    max-width: 500px;
+    min-width: 500px;
+}
+

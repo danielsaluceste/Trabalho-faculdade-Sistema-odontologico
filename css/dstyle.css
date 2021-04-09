@@ -1,0 +1,38 @@
+input[type=text] {
+    padding-left: 10px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    padding-left: 10px;
+    background-color: #05ac8a;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+input[type=password] {
+    padding-left: 10px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+input[type=password]:focus {
+    padding-left: 10px;
+    background-color: #05ac8a;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+input::placeholder {
+    color:  #ffffff!important;
+    padding-left: 10px;
+    border-radius: 5px;
+ }
+
+ input[type=password]::content {
+    padding-left: 10px;
+    background-color: #05ac8a;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}

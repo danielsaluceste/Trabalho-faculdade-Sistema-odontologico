@@ -1,0 +1,48 @@
+input[type=text] {
+    padding-left: 10px;
+    color: rgb(0, 0, 0) !important;
+    background-color: rgb(233, 233, 233) !important;;
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    padding-left: 10px;
+    background-color: #05ac8a !important;
+    color: rgb(0, 0, 0) !important;
+    border-radius: 5px;
+}
+
+input[type=date] {
+    padding-left: 10px;
+    color: rgb(0, 0, 0) !important;
+    background-color: rgb(233, 233, 233) !important;;
+    border-radius: 5px;
+}
+
+input[type=date]:focus {
+    padding-left: 10px;
+    background-color: #05ac8a !important;
+    color: rgb(0, 0, 0) !important;
+    border-radius: 5px;
+}
+
+
+input::placeholder {
+    color:  #3d3d3d !important;
+    padding-left: 10px;
+    border-radius: 5px;
+ }
+
+ input[type=text]::content {
+    padding-left: 10px;
+    background-color: #05ac8a;
+    color: rgb(61, 61, 61) !important;
+    border-radius: 5px;
+}
+
+input[type=date]::content {
+    padding-left: 10px;
+    background-color: #05ac8a;
+    color: rgb(61, 61, 61) !important;
+    border-radius: 5px;
+}
