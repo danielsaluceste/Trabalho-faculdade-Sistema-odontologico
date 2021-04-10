@@ -50,7 +50,7 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Consulta</a></li>
-						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Cadastro</a></li>
+						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="cadastroPaciente.php">Cadastro</a></li>
 
 					</ul>
 				</div>
@@ -77,18 +77,18 @@
 
 		<div class="container">
 			<!-- Contact Section Heading-->
-			<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Cadastro de paciente</h2>
+			<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Consulta de paciente</h2>
 			<!-- Icon Divider-->
 			<div class="divider-custom">
 				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon"><i class="fas fa-user-plus"></i></div>
+				<div class="divider-custom-icon"><i class="fas fa-users"></i></div>
 				<div class="divider-custom-line"></div>
 			</div>
 
 		</div>
 
 
-		<form name="meu_form" method="POST" action="class/ConectaBanco.php" style="text-align: center; display: flex; width: 100%; justify-content: center;">
+		<form name="meu_form" method="POST" action="resultadoConsulta.php" style="text-align: center; display: flex; width: 100%; justify-content: center;">
 
 			<div style="width: 80%;">
 
@@ -96,310 +96,19 @@
 
 					<div class="control-group">
 						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-							<label>Nome</label>
-							<input type="text" id="nomeid" name="name" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Nome" />
+							<label>CPF</label>
+							<input type="text" id="cpfid" name="cpf" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="CPF" />
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 
 					<br>
-					<br>
-
-					<div class="control-group">
-						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-							<p>Data de nascimento</p>
-							<input type="date" id="nascimentoid" name="nascimento" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
-							<p class="help-block text-danger"></p>
-						</div>
-					</div>
-
-
-
-					<br>
-					<br>
-
-					<div class="control-group">
-						<div class="form-group controls mb-0 pb-2" style="text-align: left;">
-							<label for="sexo">Qual o seu sexo?</label>
-							<br>
-							<label>
-								<input type="radio" id="sexoMid" value="Masculino" name="sexo"> Masculino
-							</label>
-							<label style="margin-left: 20px;">
-								<input type="radio" id="sexoFid" value="Feminino" name="sexo"> Feminino
-							</label>
-							<p class="help-block text-danger"></p>
-						</div>
-					</div>
-
-					<div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
-
-					<br>
-					<br>
-
-				</div>
-
-				<div style="display: flex;">
-
-					<div class="control-group" style="width: 49%;">
-						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-							<label>Peso</label>
-							<input type="text" id="pesoid" name="peso" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Peso" />
-							<p class="help-block text-danger"></p>
-						</div>
-					</div>
-
-					<div class="control-group" style="width: 49%; margin-left: 2%;">
-						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-							<label>Altura</label>
-							<input type="text" id="alturaid" name="altura" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Altura" />
-							<p class="help-block text-danger"></p>
-						</div>
-					</div>
-
-					<div class="control-group" style="width: 49%; margin-left: 2%;">
-						<div class="form-group controls mb-0 pb-2" style="text-align: left;">
-							<label>Cor</label>
-							<select class="form-control" id="cor" name="cor">
-								<option selected disabled value="">Selecione</option>
-								<option name="cor1" value="Branco">Branco</option>
-								<option name="cor2" value="Pardo">Pardo</option>
-								<option name="cor3" value="Negro">Negro</option>
-							</select>
-							<p class="help-block text-danger"></p>
-						</div>
-						<div style="height: 1px; width: 100%; background-color: #ebebeb; margin-top: 4px;"></div>
-					</div>
-
-				</div>
-
-				<div>
-					<br>
-
-					<div style="display: flex;">
-
-						<div class="control-group" style="width: 49%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Escolaridade</label>
-								<input type="text" id="escolaridadeid" name="escolaridade" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Escolaridade" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-						<div class="control-group" style="width: 49%; margin-left: 2%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Profissão</label>
-								<input type="text" id="profissaoid" name="profissao" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Profissão" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-					</div>
-
-					<br>
-
-					<div style="display: flex;">
-
-						<div class="control-group" style="width: 49%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>RG</label>
-								<input type="text" id="rgid" name="rg" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="RG" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-						<div class="control-group" style="width: 49%; margin-left: 2%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>CPF</label>
-								<input type="text" id="cpfid" name="cpf" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="CPF" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-						<div class="control-group" style="width: 49%; margin-left: 2%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Estado Civil</label>
-								<input type="text" id="estadocivilid" name="estadocivil" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Estado Civil" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-					</div>
-
-					<br>
-
-					<div style="display: flex;">
-
-						<div class="control-group" style="width: 49%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Naturalidade</label>
-								<input type="text" id="naturalidade_pacienteid" name="naturalidade_paciente" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Naturalidade" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-						<div class="control-group" style="width: 49%; margin-left: 2%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Estado</label>
-								<input type="text" id="estado_naturalidadefid" name="estado_naturalidade" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Estado" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-					</div>
-
-					<br>
-					<br>
-
-					<h4 for="filiacao">Filiação</h4>
-
-					<br>
-					<br>
-
-					<div style="display: flex;">
-
-						<div class="control-group" style="width: 49%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Pai</label>
-								<input type="text" id="paiid" name="pai" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Pai" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-						<div class="control-group" style="width: 49%; margin-left: 2%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Nacionalidade do Pai</label>
-								<input type="text" id="nacionalidadepaiid" name="nacionalidadepai" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Nacionalidade do Pai" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-					</div>
-
-					<br>
-					<br>
-
-					<div style="display: flex;">
-
-						<div class="control-group" style="width: 49%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Mãe</label>
-								<input type="text" id="maeid" name="mae" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Mãe" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-						<div class="control-group" style="width: 49%; margin-left: 2%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Nacionalidade da Mãe</label>
-								<input type="text" id="nacionalidademaeid" name="nacionalidademae" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Nacionalidade da Mãe" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-
-				<br>
-				<br>
-
-				<div>
-					<br>
-
-					<div class="control-group">
-						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-							<label>Telefone</label>
-							<input type="text" id="foneid" name="fone" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Telefone" />
-							<p class="help-block text-danger"></p>
-						</div>
-					</div>
-
-					<br>
-					<br>
-
-					<div style="display: flex;">
-
-						<div class="control-group" style="width: 49%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Endereço</label>
-								<input type="text" id="enderecoid" name="endereco" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Endereço" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-						<div class="control-group" style="width: 49%; margin-left: 2%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Número</label>
-								<input type="text" id="numeroid" name="numero" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Número" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-					</div>
-
-					<br>
-					<br>
-
-					<div style="display: flex;">
-
-						<div class="control-group" style="width: 49%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Complemento</label>
-								<input type="text" id="complementoid" name="complemento" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Complemento" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-						<div class="control-group" style="width: 49%; margin-left: 2%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Bairro</label>
-								<input type="text" id="bairroid" name="bairro" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Bairro" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-					</div>
-
-					<br>
-					<br>
-
-					<div class="control-group">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>CEP</label>
-								<input type="text" id="cepid" name="cep" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="CEP" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-					<br>
-					<br>
-
-					<div style="display: flex;">
-
-						<div class="control-group" style="width: 49%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Cidade</label>
-								<input type="text" id="cidadeid" name="cidade" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Cidade" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-						<div class="control-group" style="width: 49%; margin-left: 2%;">
-							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
-								<label>Estado</label>
-								<input type="text" id="estadoid" name="estado" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Estado" />
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-					</div>
 
 				</div>
 
 				<br>
 
-				<div class="form-group"><button class="btn btn-primary btn-xl" type="submit">CADASTRAR</button> </div>
+				<div class="form-group"><button class="btn btn-primary btn-xl" type="submit">CONSULTAR</button> </div>
 
 				<br>
 
