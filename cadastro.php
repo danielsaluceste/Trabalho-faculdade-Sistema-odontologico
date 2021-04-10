@@ -20,7 +20,7 @@
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-        <div style="text-align: center; display: flex; justify-content: center; width: 100%;">
+        <div onclick="(window.location='index.php')" href="" style="text-align: center; display: flex; justify-content: center; width: 100%; cursor: pointer">
             <a class="navbar-brand js-scroll-trigger">Sistema odontologico</a>
         </div>
     </nav>
@@ -32,7 +32,7 @@
 
             <div class="container">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white mb-0">ENTRAR NO SISTEMA</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-white mb-0">CADASTRAR NO SISTEMA</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -43,7 +43,14 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
 
-                        <form name="form_pesquisa" id="form_pesquisa" method="post" action="recivepass.php">
+                        <form name="form_pesquisa" id="form_pesquisa" method="post" action="reciveNewAcc.php">
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <label>Nome</label>
+                                    <input name="nome" style="border-radius: 5px; padding-left: 10px;" class="form-control text-white" type="text" value="" placeholder="Nome" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
                                     <label>E-mail</label>
@@ -54,18 +61,14 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
                                     <label>Senha</label>
-                                    <input name="pass" style="border-radius: 5px; padding-left: 10px;" class="form-control" type="password" value="" placeholder="Senha" />
+                                    <input name="senha" style="border-radius: 5px; padding-left: 10px;" class="form-control" type="password" value="" placeholder="Senha" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <br />
                             <div id="success"></div>
-                            <div style="display: flex; text-align: center; justify-content: center;">
-                                <div class="form-group"><button style="width: 200px;" class="btn btn-secondary btn-xl" value="" type="submit" name="action" value="logar">ENTRAR</button> <input type="hidden" name="acao" value="logar" /> </div>
-                                </form>
-                                <div class="form-group"><button style="width: 200px; margin-left: 15px;" type="submit" name="action" value="cadastrar" href="google.com" class="btn btn-secondary btn-xl">CRIAR CONTA</button> </div>
-                            </div>
-                        
+                            <div class="form-group"><button class="btn btn-secondary btn-xl" value="" type="submit">CADASTRAR</button> </div>
+                        </form>
                     </div>
                 </div>
             </div>

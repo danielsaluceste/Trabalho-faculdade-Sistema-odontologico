@@ -1,4 +1,13 @@
 <?php
+
+if ($_POST['action'] == 'cadastrar') {
+    echo  "<script type='text/javascript'>
+							location.href='cadastro.php'
+						</script>";
+} else {
+
+
+
 $action = isset($_POST['acao']) ? trim($_POST['acao']) : '';
 if (isset($action) && $action != "") {
 
@@ -23,5 +32,6 @@ if (isset($action) && $action != "") {
             }
             break;
     }
+}
 }
 ?>
