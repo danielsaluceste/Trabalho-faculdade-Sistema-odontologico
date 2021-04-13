@@ -96,6 +96,17 @@
 
 					<div class="control-group">
 						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+							<label>Numero do Cadastro</label>
+							<input type="text" id="ncadastro" name="idcadastro" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Numero do Cadastro" />
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+
+					<br>
+					<br>
+
+					<div class="control-group">
+						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
 							<label>Nome</label>
 							<input type="text" id="nomeid" name="nome" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Nome" />
 							<p class="help-block text-danger"></p>
@@ -112,8 +123,6 @@
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
-
-
 
 					<br>
 					<br>
