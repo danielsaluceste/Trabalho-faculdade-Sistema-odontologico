@@ -6,14 +6,16 @@ $dbname = "postlogin";
 
 $pdo = new PDO('mysql:host=localhost;dbname=postlogin', $username, $password);
 
-$cpf = $_POST["cpf"];
-$cpf1 = $_POST["cpf"];
+$cpf = $_GET["cpf"];
+if($_POST["cpf"]){
+    $cpf = $_POST["cpf"];
+    $cpf1 = $_POST["cpf"];
+}
 
 $consulta = $pdo->query("SELECT * FROM cadastro WHERE cpf='$cpf';");
 $recebido;
 
 while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-    echo "Nome: {$linha['nome']}<br />";
     $recebido = $linha;
 }
 
@@ -27,14 +29,17 @@ $dbname = "postlogin";
 
 $pdo = new PDO('mysql:host=localhost;dbname=postlogin', $username, $password);
 
-$cpf = $_POST["cpf"];
-$cpf1 = $_POST["cpf"];
+$cpf = $_GET["cpf"];
+if($_POST["cpf"]){
+    $cpf = $_POST["cpf"];
+    $cpf1 = $_POST["cpf"];
+}
+
 
 $consulta2 = $pdo->query("SELECT * FROM avaliacao WHERE CPF_avaliacao='$cpf';");
 $recebido2;
 
 while ($linha2 = $consulta2->fetch(PDO::FETCH_ASSOC)) {
-    echo "Nome: {$linha2['nome']}<br />";
     $recebido2 = $linha2;
 }
 
@@ -78,6 +83,7 @@ if ($logado == "N" && $id_users == "") {
     <link href="css/log2.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/tableStyle.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -113,6 +119,9 @@ if ($logado == "N" && $id_users == "") {
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
 
     <div class="container">
         <!-- Contact Section Heading-->
@@ -123,8 +132,75 @@ if ($logado == "N" && $id_users == "") {
             <div class="divider-custom-icon"><i class="fas fa-user"></i></div>
             <div class="divider-custom-line"></div>
         </div>
-        <h4 class="page-section-heading text-center text-uppercase text-secondary mb-0"><?php echo $recebido['nome']; ?></h4>
+        <h4 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-left: 36px;"><?php echo $recebido['nome']; ?> <i  onClick="parent.location='class/delete.php?cpf=<?php echo $recebido['cpf']; ?>'" style="margin-left: 10px; color: #117964; cursor: pointer;" class="far fa-trash-alt"></i> </h4>
 
+    </div>
+    <br>
+    <br>
+
+    <div style="width: 90.5%; border-radius: 5px; border-color: #117964; border-style: solid; padding: 15px; margin-left: 5%; margin-right: 5%;">
+    
+        <div style="text-align: center; display: flex; justify-content: center;">
+        
+            <h4 style="margin-top: 10px; color: #117964;">PRONTUARIO DO PACIENTE</h4>
+    
+        </div>
+
+        <div style="width: 100%;">
+
+        <table class="styled-table" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Procedimento</th>
+                    <th>Nome do Médico</th>
+                    <th style="width: 12px;"></th>
+                    <th style="width: 12px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+
+
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "postlogin";
+
+                $pdo = new PDO('mysql:host=localhost;dbname=postlogin', $username, $password);
+
+                $consulta = $pdo->query("SELECT * FROM prontuario WHERE CPF_paciente = '$recebido[cpf]'"); 
+
+                $recebido;
+
+                $i = 1;
+                while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+
+                <tr>
+                    <td> <?php echo $linha['data']; ?> </td>
+                    <td> <?php echo $linha['procedimento']; ?> </td>
+                    <td> <?php echo $linha['medico']; ?> </td>
+                    <td style="width: 12px; cursor: pointer; color: red;"> <i onClick="parent.location='class/delete.php?id=<?php echo $linha['id_prontuario']; ?>&cpf2=<?php echo $linha['CPF_paciente']; ?>'" class="fas fa-times"></i> </td>
+                    <td style="width: 12px; cursor: pointer; color: #117964;"> <i onClick="parent.location='class/delete.php?idEdit=<?php echo $linha['id_prontuario']; ?>&cpf2=<?php echo $linha['CPF_paciente']; ?>'" class="fas fa-pen"></i> </td>
+                </tr>
+
+                <?php
+                $i = $i + 1;
+                }
+
+                ?>
+
+            </tbody>
+        </table>
+
+        </div>
+
+        <div style="text-align: center; margin-bottom: 5px;">
+            <button class="btn btn-primary btn-md" onClick="parent.location='prontuario.php'" href="prontuario.php">NOVO</button>
+        </div>        
+    
     </div>
 
     <div style="display: flex;">
@@ -135,7 +211,7 @@ if ($logado == "N" && $id_users == "") {
 
             <div style="width: 100%; border-radius: 5px; border-color: #117964; border-style: solid; padding: 15px;">
 
-                <h4 style="margin-top: 10px; color: #117964" for="filiacao">CADASTRO DO PACIENTE</h4>
+                <h4 style="margin-top: 10px; color: #117964; margin-left: 10px;" for="filiacao">CADASTRO DO PACIENTE <i style="margin-left: 10px; color: #2C3E50; cursor: pointer;" class="far fa-edit"></i> </h4>
 
                 <div>
 
@@ -448,7 +524,7 @@ if ($logado == "N" && $id_users == "") {
 
             <div style="width: 100%; border-radius: 5px; border-color: #117964; border-style: solid; padding: 15px;">
 
-                <h4 style="margin-top: 10px; color: #117964" for="filiacao">AVALIAÇÃO DO PACIENTE</h4>
+                <h4 style="margin-top: 10px; color: #117964; margin-left: 10px;" for="filiacao">AVALIAÇÃO DO PACIENTE <i style="margin-left: 10px; color: #2C3E50; cursor: pointer;" class="far fa-edit"></i> </h4>
 
                 <div>
 
