@@ -50,8 +50,17 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="logado.php">Consulta</a></li>
-						<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Cadastro</a></li>
-
+						<li class="nav-item mx-0 mx-lg-1 dropdown">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Cadastro
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="cadastroPaciente.php">Paciente</a>
+							<a class="dropdown-item" href="avaliacao.php">Avaliação</a>
+							<!-- <div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a> -->
+							</div>
+						</li>
 					</ul>
 				</div>
 				<div style="margin-left: 20px;">
