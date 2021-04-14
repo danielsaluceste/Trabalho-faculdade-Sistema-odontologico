@@ -6,7 +6,9 @@ $dbname = "postlogin";
 
 $pdo = new PDO('mysql:host=localhost;dbname=postlogin', $username, $password);
 
-$cpf = $_GET["cpf"];
+if($_GET["cpf"]){
+    $cpf = $_GET["cpf"];
+}
 if($_POST["cpf"]){
     $cpf = $_POST["cpf"];
     $cpf1 = $_POST["cpf"];
@@ -29,7 +31,9 @@ $dbname = "postlogin";
 
 $pdo = new PDO('mysql:host=localhost;dbname=postlogin', $username, $password);
 
-$cpf = $_GET["cpf"];
+if($_GET["cpf"]){
+    $cpf = $_GET["cpf"];
+}
 if($_POST["cpf"]){
     $cpf = $_POST["cpf"];
     $cpf1 = $_POST["cpf"];
@@ -119,9 +123,6 @@ if ($logado == "N" && $id_users == "") {
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
 
     <div class="container">
         <!-- Contact Section Heading-->
@@ -147,6 +148,8 @@ if ($logado == "N" && $id_users == "") {
         </div>
 
         <div style="width: 100%;">
+
+        <?php if($_GET['edit'] == 0) : ?>
 
         <table class="styled-table" style="width: 100%;">
             <thead>
@@ -179,11 +182,11 @@ if ($logado == "N" && $id_users == "") {
                 ?>
 
                 <tr>
-                    <td> <?php echo $linha['data']; ?> </td>
+                    <td> <?php echo $linha['data_prontuario']; ?> </td>
                     <td> <?php echo $linha['procedimento']; ?> </td>
                     <td> <?php echo $linha['medico']; ?> </td>
                     <td style="width: 12px; cursor: pointer; color: red;"> <i onClick="parent.location='class/delete.php?id=<?php echo $linha['id_prontuario']; ?>&cpf2=<?php echo $linha['CPF_paciente']; ?>'" class="fas fa-times"></i> </td>
-                    <td style="width: 12px; cursor: pointer; color: #117964;"> <i onClick="parent.location='class/delete.php?idEdit=<?php echo $linha['id_prontuario']; ?>&cpf2=<?php echo $linha['CPF_paciente']; ?>'" class="fas fa-pen"></i> </td>
+                    <td style="width: 12px; cursor: pointer; color: #117964;"> <i onClick="parent.location='resultadoConsulta.php?edit=1&cpf=<?php echo $linha['CPF_paciente']; ?>&item=<?php echo $linha['id_prontuario']; ?>'" class="fas fa-pen"></i> </td>
                 </tr>
 
                 <?php
@@ -195,11 +198,95 @@ if ($logado == "N" && $id_users == "") {
             </tbody>
         </table>
 
-        </div>
+        <div style="text-align: center; margin-bottom: 5px;">
+            <button class="btn btn-primary btn-md" onClick="parent.location='prontuario.php'">NOVO</button>
+        </div>   
+
+        <?php endif; ?>
+        
+        <!-- Edição -->
+
+        <?php if($_GET['edit'] == 1) : ?>
+
+
+        <!--  -->
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "postlogin";
+
+        $pdo = new PDO('mysql:host=localhost;dbname=postlogin', $username, $password);
+
+
+        $id = $_GET["item"];
+
+
+        $consulta = $pdo->query("SELECT * FROM prontuario WHERE id_prontuario='$id';");
+        $recebidoE;
+
+        while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+            $recebidoE = $linha;
+        }
+
+        ?>
+        <!--  -->
+
+
+        <form method="POST" action="class/EditPront.php">
+        <table class="styled-table" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Procedimento</th>
+                    <th>Nome do Médico</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td> 
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                      <p></p>
+                      <input value="<?php echo $recebidoE['data_prontuario']; ?>" type="date" id="nomeid" name="data" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="" />
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div> 
+                </td>
+
+                <td>
+                    <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                      <p></p>
+                      <input value="<?php echo $recebidoE['procedimento']; ?>" type="text" id="nomeid" name="procedimento" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="" />
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                    <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                      <p></p>
+                      <input value="<?php echo $recebidoE['medico']; ?>" type="text" id="nomeid" name="medico" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="" />
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div>
+                </td>
+            </tbody>
+        </table>
+            <input name="cpf2" value="<?php echo $recebidoE['CPF_paciente']; ?>" type="text" style="display: none;">
+            <input name="item2" value="<?php echo $id; ?>" type="text" style="display: none;">
+        
 
         <div style="text-align: center; margin-bottom: 5px;">
-            <button class="btn btn-primary btn-md" onClick="parent.location='prontuario.php'" href="prontuario.php">NOVO</button>
-        </div>        
+            <button class="btn btn-primary btn-md" type="submit">SALVAR</button>
+        </div>   
+
+        </form>
+
+        <?php endif; ?>
+
+        </div>    
     
     </div>
 

@@ -88,7 +88,7 @@
 		</div>
 
 
-		<form name="meu_form" method="POST" action="resultadoConsulta.php" style="text-align: center; display: flex; width: 100%; justify-content: center;">
+		<form name="meu_form" method="POST" action="resultadoConsulta.php?edit=0" style="text-align: center; display: flex; width: 100%; justify-content: center;">
 
 			<div style="width: 80%;">
 
