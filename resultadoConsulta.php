@@ -182,7 +182,7 @@ if ($logado == "N" && $id_users == "") {
                 ?>
 
                 <tr>
-                    <td> <?php echo $linha['data_prontuario']; ?> </td>
+                    <td> <?php echo $linha['data']; ?> </td>
                     <td> <?php echo $linha['procedimento']; ?> </td>
                     <td> <?php echo $linha['medico']; ?> </td>
                     <td style="width: 12px; cursor: pointer; color: red;"> <i onClick="parent.location='class/delete.php?id=<?php echo $linha['id_prontuario']; ?>&cpf2=<?php echo $linha['CPF_paciente']; ?>'" class="fas fa-times"></i> </td>
@@ -247,7 +247,7 @@ if ($logado == "N" && $id_users == "") {
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
                       <p></p>
-                      <input value="<?php echo $recebidoE['data_prontuario']; ?>" type="date" id="nomeid" name="data" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="" />
+                      <input value="<?php echo $recebidoE['data']; ?>" type="date" id="nomeid" name="data" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="" />
                       <p class="help-block text-danger"></p>
                     </div>
                   </div> 
@@ -677,17 +677,11 @@ if ($logado == "N" && $id_users == "") {
 
                     <div>
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">1- Já Teve Hemorragia?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v1sid" name="v1" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v1nid" name="v1" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">1- Já Teve Hemorragia?</p>
+                                    <input disabled value="<?php echo $recebido2['v1']; ?>" type="text" name="v1" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -696,18 +690,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">2- Sofre(u) de alergia?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v2sid" name="v2" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v2nid" name="v2" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">2- Sofre(u) de alergia?</p>
+                                    <input disabled value="<?php echo $recebido2['v2']; ?>" type="text" name="v2" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -716,18 +705,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">3- Teve reumatismo infeccioso?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v3sid" name="v3" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v3nid" name="v3" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">3- Teve reumatismo infeccioso?</p>
+                                    <input disabled value="<?php echo $recebido2['v3']; ?>" type="text" name="v3" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -736,18 +720,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">4- Sofre(u) de distúrbio cardiovascular?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v4sid" name="v4" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v4nid" name="v4" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">4- Sofre(u) de distúrbio cardiovascular?</p>
+                                    <input disabled value="<?php echo $recebido2['v4']; ?>" type="text" name="v4" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -756,18 +735,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">5-Sofre(u) de gastrite?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v5sid" name="v5" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v5nid" name="v5" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">5-Sofre(u) de gastrite?</p>
+                                    <input disabled value="<?php echo $recebido2['v5']; ?>" type="text" name="v5" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -776,18 +750,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">6- É diabético ou tem familiares diabéticos?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v6sid" name="v6" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v6nid" name="v6" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">6- É diabético ou tem familiares diabéticos?</p>
+                                    <input disabled value="<?php echo $recebido2['v6']; ?>" type="text" name="v6" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -796,18 +765,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">7- Já desmaiou alguma vez?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v7sid" name="v7" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v7nid" name="v7" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">7- Já desmaiou alguma vez?</p>
+                                    <input disabled value="<?php echo $recebido2['v7']; ?>" type="text" name="v6" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -816,18 +780,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">8- Está sob tratamento médico?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v8sid" name="v8" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v8nid" name="v8" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">8- Está sob tratamento médico?</p>
+                                    <input disabled value="<?php echo $recebido2['v8']; ?>" type="text" name="v8" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -836,18 +795,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">9- Está tomando algum medicamento?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v9sid" name="v9" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v9nid" name="v9" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">9- Está tomando algum medicamento?</p>
+                                    <input disabled value="<?php echo $recebido2['v9']; ?>" type="text" name="v9" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -856,18 +810,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">10- Esteve doente ou foi operado nos últimos 5 anos?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v10sid" name="v10" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v10nid" name="v10" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">10- Esteve doente ou foi operado nos últimos 5 anos?</p>
+                                    <input disabled value="<?php echo $recebido2['v10']; ?>" type="text" name="v10" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -876,18 +825,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">11- Tem hábitos,vícios ou manias?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v11sid" name="v11" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v11nid" name="v11" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">11- Tem hábitos,vícios ou manias?</p>
+                                    <input disabled value="<?php echo $recebido2['v11']; ?>" type="text" name="v11" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -896,18 +840,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">12- Tem ansiedade/depressão?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v12sid" name="v12" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v12nid" name="v12" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">12- Tem ansiedade/depressão?</p>
+                                    <input disabled value="<?php echo $recebido2['v12']; ?>" type="text" name="v12" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -925,18 +864,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Tuberculose</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v13Tuberculosesid" name="v13Tuberculose" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v13Tuberculosenid" name="v13Tuberculose" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">Tuberculose</p>
+                                    <input disabled value="<?php echo $recebido2['13Tuberculose']; ?>" type="text" name="v13Tuberculose" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -945,18 +879,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Sífilis</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v13Sífilissid" name="v13Sífilis" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v13Sífilisnid" name="v13Sífilis" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">Sífilis</p>
+                                    <input disabled value="<?php echo $recebido2['v13Sífilis']; ?>" type="text" name="v13Sífilis" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -965,18 +894,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Hepatite A, B, C</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v13HepatiteABCsid" name="v13HepatiteABC" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v13HepatiteABCnid" name="v13HepatiteABC" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">Hepatite A, B, C</p>
+                                    <input disabled value="<?php echo $recebido2['v13HepatiteABC']; ?>" type="text" name="v13HepatiteABC" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -985,18 +909,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">SIDA/AIDS</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v13SIDA/AIDSsid" name="v13SIDA/AIDS" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v13HSIDA/AIDSnid" name="v13SIDA/AIDS" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">SIDA/AIDS</p>
+                                    <input disabled value="<?php echo $recebido2['v13SIDAAIDS']; ?>" type="text" name="v13SIDA/AIDS" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -1005,18 +924,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Sarampo</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v13Saramposid" name="v13Sarampo" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v13Saramponid" name="v13Sarampo" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">Sarampo</p>
+                                    <input disabled value="<?php echo $recebido2['13Sarampo']; ?>" type="text" name="v13Sarampo" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -1025,18 +939,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Caxumba</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v13Caxumbasid" name="v13Caxumba" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v13Caxumbanid" name="v13Caxumba" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">Caxumba</p>
+                                    <input disabled value="<?php echo $recebido2['v13Caxumba']; ?>" type="text" name="v13Caxumba" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -1045,18 +954,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Varicela</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v13Varicelasid" name="v13Varicela" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v13Varicelanid" name="v13Varicela" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">Varicela</p>
+                                    <input disabled value="<?php echo $recebido2['v13Varicela']; ?>" type="text" name="v13Varicela" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -1065,18 +969,13 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Outras</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v13outrassid" name="v13outras" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v13outrasnid" name="v13outras" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">Outras</p>
+                                    <input disabled value="<?php echo $recebido2['v13outras']; ?>" type="text" name="v13outras" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
@@ -1088,22 +987,19 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">14- É fumante?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="v14sid" name="v14" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="v14nid" name="v14" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p for="sexo">14- É fumante?</p>
+                                    <input disabled value="<?php echo $recebido2['v14']; ?>" type="text" name="v14" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                         </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
                     </div>
+
+                    <br>
 
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
@@ -1135,19 +1031,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">2- Nasceu de parto:</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="va2normalid" name="va2" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="va2aforcaid" name="va2" value="Aforca"> A força
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="va2cesarianaid" name="va2" value="Cesariana"> Cesariana
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>2- Nasceu de parto:</p>
+                                <input disabled value="<?php echo $recebido2['va2']; ?>" type="text" name="va2" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1158,16 +1046,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">3- A criança teve algum problema no parto?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="va3sid" name="va3" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="va3nid" name="va3" value="Nao"> Não
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>3- A criança teve algum problema no parto?</p>
+                                <input disabled value="<?php echo $recebido2['va3']; ?>" type="text" name="va3" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1178,16 +1061,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">4-A amamentação foi: </label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="va4naturalid" name="va4" value="Natural"> Natural
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="va4mamadeiraid" name="va4" value="Mamadeira"> Mamadeira
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>4-A amamentação foi:</p>
+                                <input disabled value="<?php echo $recebido2['va4']; ?>" type="text" name="va4" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1206,16 +1084,28 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">5 -Já lhe foi dito para não tomar anestesia local? </label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="va5sid" name="va5" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="va5nid" name="va5" value="Nao"> Não
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>5 -Já lhe foi dito para não tomar anestesia local?</p>
+                                <input disabled value="<?php echo $recebido2['va5']; ?>" type="text" name="va5" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        
+
+                        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+                    </div>
+
+                    <br>
+
+                    <div>
+
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>6- Já teve ou viveu com alguém que tivesse doença grave e contagiosa?</p>
+                                <input disabled value="<?php echo $recebido2['va6']; ?>" type="text" name="va6" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1226,36 +1116,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">6- Já teve ou viveu com alguém que tivesse doença grave e contagiosa?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="va6sid" name="va6" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="va6nid" name="va6" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-
-                        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
-                    </div>
-
-                    <br>
-
-                    <div>
-                        <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">7-A criança já foi vacinada?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="va7sid" name="va7" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="va7nid" name="va7" value="Nao"> Não
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>7-A criança já foi vacinada?</p>
+                                <input disabled value="<?php echo $recebido2['va7']; ?>" type="text" name="va7" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1275,22 +1140,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Durante os 2 primeiros anos de vida:</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="sentou-seid" name="primeirosanos" value="Sentou"> Sentou-se
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="engatinhouid" name="primeirosanos" value="Engatinhou"> Engatinhou
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="andouid" name="primeirosanos" value="Andou"> Andou
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="falouid" name="primeirosanos" value="Falou"> Falou
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>Durante os 2 primeiros anos de vida:</p>
+                                <input disabled value="<?php echo $recebido2['primeirosanos']; ?>" type="text" name="primeirosanos" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1301,16 +1155,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">No lar e na escola: teve alguma dificuldade no aprendizado?</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="Aprendizadosid" name="dificuldadeAprentizado" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Apendizadonid" name="dificuldadeAprentizado" value="Nao"> Não
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>No lar e na escola: teve alguma dificuldade no aprendizado?</p>
+                                <input disabled value="<?php echo $recebido2['dificuldadeAprentizado']; ?>" type="text" name="dificuldadeAprentizado" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1321,28 +1170,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Estado anímico: </label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="Alegreid" name="Estadoanímico" value="Alegre"> Alegre
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Tristeid" name="Estadoanímico" value="Triste"> Triste
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Tímidoid" name="Estadoanímico" value="Timido"> Tímido
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Tranquiloid" name="Estadoanímico" value="Tranquilo"> Tranquilo
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Inquietoid" name="Estadoanímico" value="Inquieto"> Inquieto
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Assustadoid" name="Estadoanímico" value="Assustado"> Assustado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>Estado anímico: </p>
+                                <input disabled value="<?php echo $recebido2['Estadoanímico']; ?>" type="text" name="Estadoanímico" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1353,28 +1185,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+                        
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Tem sono:</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="Tranquiloid" name="sono" value="Tranquilo"> Tranquilo
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Intranquiloid" name="sono" value="Intranquilo"> Intranquilo
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Terrornoturnoid" name="sono" value="TNoturno"> Terror noturno
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Pesadelosid" name="sono" value="Pesadelo"> Pesadelos
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Sonambulismoid" name="sono" value="Sonambulo"> Sonambulismo
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Insoniaid" name="sono" value="Insonia"> Insônia
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>Tem sono:</p>
+                                <input disabled value="<?php echo $recebido2['sono']; ?>" type="text" name="sono" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1385,31 +1200,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Conduta psicomotora: </label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="Insoniaid" name="psicomotora" value="PostNrml"> Postura normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Posturaalteradaid" name="psicomotora" value="PostAltr"> Postura alterada
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Fonaçãonormalid" name="psicomotora" value="FonacaoNrml"> Fonação normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Distúrbiosdafalaid" name="psicomotora" value="DisturbFala"> Distúrbios da fala
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Algumaparalisiaid" name="psicomotora" value="Paralisia"> Alguma paralisia
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Enuresenoturnaid" name="psicomotora" value="EnureseNot"> Enurese noturna
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Descontroledosesfínctereid" name="psicomotora" value="DescEsfin"> Descontrole dos esfíncteres
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>Conduta psicomotora:</p>
+                                <input disabled value="<?php echo $recebido2['psicomotora']; ?>" type="text" name="psicomotora" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1420,19 +1215,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Alimentação: </label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="Rejeitaid" name="Alimentação" value="Rejeita"> Rejeita
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Alimenta-senormalmenteid" name="Alimentação" value="AlimeNorm"> Alimenta-se normalmente
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Supraalimenta-seid" name="Alimentação" value="SupraAlim"> Supra alimenta-se
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>Alimentação:</p>
+                                <input disabled value="<?php echo $recebido2['Alimentacao']; ?>" type="text" name="Alimentacao" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1443,19 +1230,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Sociabilidade: </label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="Isoladaid" name="Sociabilidade" value="Isolada"> Isolada
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Agressivaid" name="Sociabilidade" value="Agressiva"> Agressiva
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Relaçõesnormaisid" name="Sociabilidade" value="RelacaoNorm"> Relações normais
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>Sociabilidade:</p>
+                                <input disabled value="<?php echo $recebido2['Sociabilidade']; ?>" type="text" name="Sociabilidade" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1466,28 +1245,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Apresenta alguma patologia de conduta: </label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="Tiquesid" name="patologia" value="Tiques"> Tiques
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Fobiasid" name="patologia" value="Fobias"> Fobias
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Ansiedadeid" name="patologia" value="Ansiedade"> Ansiedade
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Medoid" name="patologia" value="Medo"> Medo
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Birraid" name="patologia" value="Birra"> Birra
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Ciumesid" name="patologia" value="Ciumes"> Ciúmes
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>Apresenta alguma patologia de conduta:</p>
+                                <input disabled value="<?php echo $recebido2['patologia']; ?>" type="text" name="patologia" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1519,16 +1281,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">1 - Lábios:</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val1nid" name="val1" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val1aid" name="val1" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>1 - Lábios:</p>
+                                <input disabled value="<?php echo $recebido2['val1']; ?>" type="text" name="val1" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1539,16 +1296,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">2 - Mucosa Jugal</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val2nid" name="val2" value="Normal">Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val2aid" name="val2" value="Alterado">Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>2 - Mucosa Jugal</p>
+                                <input disabled value="<?php echo $recebido2['val2']; ?>" type="text" name="val2" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1559,16 +1311,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">3 - Língua</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val3nid" name="val3" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val3aid" name="val3" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>3 - Língua</p>
+                                <input disabled value="<?php echo $recebido2['val3']; ?>" type="text" name="val3" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1579,16 +1326,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">4 - Soalho da boca</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val4nid" name="val4" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val4aid" name="val4" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>4 - Soalho da boca</p>
+                                <input disabled value="<?php echo $recebido2['val4']; ?>" type="text" name="val4" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1599,16 +1341,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">5 - Palato duro</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val5nid" name="val5" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val5aid" name="val5" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>5 - Palato duro</p>
+                                <input disabled value="<?php echo $recebido2['val5']; ?>" type="text" name="val5" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1619,16 +1356,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">6 - Garganta</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val6nid" name="val6" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val6aid" name="val6" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>6 - Garganta</p>
+                                <input disabled value="<?php echo $recebido2['val6']; ?>" type="text" name="val6" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1639,16 +1371,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">7 - Palato mole</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val7nid" name="val7" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val7aid" name="val7" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>7 - Palato mole</p>
+                                <input disabled value="<?php echo $recebido2['val7']; ?>" type="text" name="val7" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1659,16 +1386,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">8 - Mucosa Alveolar</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val8nid" name="val8" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val8aid" name="val8" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>8 - Mucosa Alveolar</p>
+                                <input disabled value="<?php echo $recebido2['val8']; ?>" type="text" name="val8" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1679,16 +1401,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">9 - Gengivas</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val9nid" name="val9" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val9aid" name="val9" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>9 - Gengivas</p>
+                                <input disabled value="<?php echo $recebido2['val9']; ?>" type="text" name="val9" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1699,16 +1416,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">10 - Glândulas Salivares</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val10nid" name="val10" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val10aid" name="val10" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>10 - Glândulas Salivares</p>
+                                <input disabled value="<?php echo $recebido2['val10']; ?>" type="text" name="val10" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1719,16 +1431,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">11 - Linfonodos</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val11nid" name="val11" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val11aid" name="val11" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>11 - Linfonodos</p>
+                                <input disabled value="<?php echo $recebido2['val11']; ?>" type="text" name="val11" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1739,16 +1446,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">12 - ATM</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val12nid" name="val12" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val12aid" name="val12" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>12 - ATM</p>
+                                <input disabled value="<?php echo $recebido2['val12']; ?>" type="text" name="val12" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1759,16 +1461,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">13 - Músculos Mastigadores</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val13nid" name="val13" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val13aid" name="val13" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>13 - Músculos Mastigadores</p>
+                                <input disabled value="<?php echo $recebido2['val13']; ?>" type="text" name="val13" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1779,16 +1476,11 @@ if ($logado == "N" && $id_users == "") {
                     <br>
 
                     <div>
+
                         <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">14 - Oclusão</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="val14nid" name="val14" value="Normal"> Normal
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="val14aid" name="val14" value="Alterado"> Alterado
-                                </label>
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>14 - Oclusão</p>
+                                <input disabled value="<?php echo $recebido2['val14']; ?>" type="text" name="val14" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -1805,6 +1497,14 @@ if ($logado == "N" && $id_users == "") {
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
+
+                    <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                <p>Alterações encontradas :</p>
+                                <input disabled value="<?php echo $recebido2['Alteraçõesencontradas']; ?>" type="text" name="Alteraçõesencontradas" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
 
                 </div>
 
@@ -1890,26 +1590,25 @@ if ($logado == "N" && $id_users == "") {
                 <div>
                     <br>
 
-                    <input type="checkbox" id="AtendimentoDeUrgenciaid" name="AtendimentoDeUrgencia" value="AtendimentoDeUrgencia">
-                    <label for="AtendimentoDeUrgenciaid">Atendimento de Urgência (Estágio Sup. em Clínica Odontológica Integrada – URGÊNCIA)</label>
-                    <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+                    <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p>Atendimento de Urgência (Estágio Sup. em Clínica Odontológica Integrada – URGÊNCIA)</p>
+                                    <input disabled value="<?php echo $recebido2['AtendimentoDeUrgencia']; ?>" type="text" name="AtendimentoDeUrgencia" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
 
                     <br>
 
                     <div>
-                        <div class="control-group">
-                            <div class="form-group controls mb-0 pb-2" style="text-align: left;">
-                                <label for="sexo">Medicação</label>
-                                <br>
-                                <label>
-                                    <input type="radio" id="Medicacaosid" name="Medicacao" value="Sim"> Sim
-                                </label>
-                                <label style="margin-left: 20px;">
-                                    <input type="radio" id="Medicacaonid" name="Medicacao" value="Nao"> Não
-                                </label>
-                                <p class="help-block text-danger"></p>
+
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+                                    <p>Medicação</p>
+                                    <input disabled value="<?php echo $recebido2['Medicacao']; ?>" type="text" name="Medicacao" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
                             </div>
-                        </div>
 
                         <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
                     </div>

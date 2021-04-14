@@ -17,7 +17,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "UPDATE prontuario SET medico='$medico', data_prontuario='$data2', procedimento='$procedimento' WHERE id_prontuario=$item";
+$sql = "UPDATE prontuario SET medico='$medico', data='$data2', procedimento='$procedimento' WHERE id_prontuario=$item";
 
 if ($conn->query($sql) === TRUE) {
   
