@@ -44,7 +44,7 @@ if(isset($_GET['id'])){
     if ($conn->query($sql) === TRUE) {
 
         echo  "<script type='text/javascript'>
-        location.href='../resultadoConsulta.php?cpf=$cc'
+        location.href='../resultadoConsulta.php?edit=0&cpf=$cc'
          </script>";
         
     } else {

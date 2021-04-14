@@ -18,7 +18,7 @@
 	  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 	  // set the PDO error mode to exception
 	  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	  $sql = "INSERT INTO prontuario (CPF_paciente, data_prontuario, medico, procedimento) VALUES ('$cpf','$data', '$medico','$procedimento')";
+	  $sql = "INSERT INTO prontuario (CPF_paciente, data, medico, procedimento) VALUES ('$cpf','$data', '$medico','$procedimento')";
 	  // use exec() because no results are returned
 	  $conn->exec($sql);
 	  header('Location: ../prontuario.php');
