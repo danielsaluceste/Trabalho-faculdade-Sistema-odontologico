@@ -134,6 +134,7 @@ if ($logado == "N" && $id_users == "") {
     <br>
 
     <div class="container">
+
         <!-- Contact Section Heading-->
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Resultado da consulta</h2>
         <!-- Icon Divider-->
@@ -158,7 +159,7 @@ if ($logado == "N" && $id_users == "") {
 
         <div style="width: 100%;">
 
-        <?php if($_GET['edit'] == 0) : ?>
+        <?php if($_GET['edit'] != 1) : ?>
 
         <table class="styled-table" style="width: 100%;">
             <thead>
@@ -307,7 +308,10 @@ if ($logado == "N" && $id_users == "") {
 
             <div style="width: 100%; border-radius: 5px; border-color: #117964; border-style: solid; padding: 15px;">
 
-                <h4 style="margin-top: 10px; color: #117964; margin-left: 10px;" for="filiacao">CADASTRO DO PACIENTE <i style="margin-left: 10px; color: #2C3E50; cursor: pointer;" class="far fa-edit"></i> </h4>
+                <h4 style="margin-top: 10px; color: #117964; margin-left: 10px;" for="filiacao">CADASTRO DO PACIENTE <i onClick="parent.location='resultadoConsulta.php?edit=2&cpf=<?php echo $cpf; ?>'" style="margin-left: 10px; color: #2C3E50; cursor: pointer;" class="far fa-edit"></i> </h4>             
+                
+
+                <?php if($_GET['edit'] != 2) : ?> <!-- -------------------------------------------Edição 0----------------------------------- -->
 
                 <div>
 
@@ -608,8 +612,342 @@ if ($logado == "N" && $id_users == "") {
 
                 <br>
 
+                <?php endif; ?> <!-- -------------------------------------Edição end----------------------------------------------- -->
+
+                <?php if($_GET['edit'] == 2) : ?> <!-- --------------------------------Edição 2---------------------------------- -->
+
+                    <form name="meu_form" method="POST" action="class/EditCad.php" style="text-align: center; display: flex; width: 100%; justify-content: center;">
+
+			<div style="width: 100%;">
+
+				<div>
+
+                    <div class="control-group">
+						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+							<label>Numero do Cadastro</label>
+							<input type="text" id="ncadastro" name="idcadastro" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Numero do Cadastro" />
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+
+					<br>
+					<br>
+
+					<div class="control-group">
+						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+							<p>Nome</p>
+							<input type="text" id="nomeid" value="<?php echo $recebido['nome']; ?>" name="nome" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Nome" />
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+
+					<br>
+					<br>
+
+					<div class="control-group">
+						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+							<p>Data de nascimento</p>
+							<input type="date" id="dataid" value="<?php echo $recebido['data']; ?>" name="data" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" />
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+
+					<br>
+					<br>
+
+					<div class="control-group">
+						<div class="form-group controls mb-0 pb-2" style="text-align: left;">
+							<label for="sexo">Qual o seu sexo?</label>
+							<br>
+							<label>
+								<input type="radio" id="sexoMid" value="Masculino" name="sexo"> Masculino
+							</label>
+							<label style="margin-left: 20px;">
+								<input type="radio" id="sexoFid" value="Feminino" name="sexo"> Feminino
+							</label>
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+
+					<div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+
+					<br>
+					<br>
+
+				</div>
+
+				<div style="display: flex;">
+
+					<div class="control-group" style="width: 49%;">
+						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+							<label>Peso</label>
+							<input type="text" id="pesoid"  name="peso" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Peso" />
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+
+					<div class="control-group" style="width: 49%; margin-left: 2%;">
+						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+							<label>Altura</label>
+							<input type="text" id="alturaid"  name="altura" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Altura" />
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+
+					<div class="control-group" style="width: 49%; margin-left: 2%;">
+						<div class="form-group controls mb-0 pb-2" style="text-align: left;">
+							<label>Cor</label>
+							<select class="form-control" id="cor" name="cor">
+								<option selected disabled value="">Selecione</option>
+								<option name="cor1" value="Branco">Branco</option>
+								<option name="cor2" value="Pardo">Pardo</option>
+								<option name="cor3" value="Negro">Negro</option>
+							</select>
+							<p class="help-block text-danger"></p>
+						</div>
+						<div style="height: 1px; width: 100%; background-color: #ebebeb; margin-top: 4px;"></div>
+					</div>
+
+				</div>
+
+				<div>
+					<br>
+
+					<div style="display: flex;">
+
+						<div class="control-group" style="width: 49%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Escolaridade</label>
+								<input type="text" id="escolaridadeid" name="escolaridade" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Escolaridade" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Profissão</label>
+								<input type="text" id="profissaoid" name="profissao" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Profissão" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<br>
+
+					<div style="display: flex;">
+
+						<div class="control-group" style="width: 49%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>RG</label>
+								<input type="text" id="rgid" name="rg" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="RG" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>CPF</label>
+								<input type="text" id="cpfid" name="cpf" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="CPF" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Estado Civil</label>
+								<input type="text" id="estadocivilid" name="estadocivil" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Estado Civil" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<br>
+
+					<div style="display: flex;">
+
+						<div class="control-group" style="width: 49%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Naturalidade</label>
+								<input type="text" id="naturalidade_pacienteid" name="naturalidade_paciente" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Naturalidade" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Estado</label>
+								<input type="text" id="estado_naturalidadefid" name="estado_naturalidade" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Estado" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<br>
+					<br>
+
+					<h4 for="filiacao">Filiação</h4>
+
+					<br>
+					<br>
+
+					<div style="display: flex;">
+
+						<div class="control-group" style="width: 49%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Pai</label>
+								<input type="text" id="paiid" name="pai" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Pai" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Nacionalidade do Pai</label>
+								<input type="text" id="nacionalidadepaiid" name="nacionalidadepai" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Nacionalidade do Pai" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<br>
+					<br>
+
+					<div style="display: flex;">
+
+						<div class="control-group" style="width: 49%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Mãe</label>
+								<input type="text" id="maeid" name="mae" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Mãe" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Nacionalidade da Mãe</label>
+								<input type="text" id="nacionalidademaeid" name="nacionalidademae" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Nacionalidade da Mãe" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<br>
+				<br>
+
+				<div>
+					<br>
+
+					<div class="control-group">
+						<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+							<label>Telefone</label>
+							<input type="text" id="foneid" name="fone" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Telefone" />
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+
+					<br>
+					<br>
+
+					<div style="display: flex;">
+
+						<div class="control-group" style="width: 49%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Endereço</label>
+								<input type="text" id="enderecoid" name="endereco" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Endereço" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Número</label>
+								<input type="text" id="numeroid" name="numero" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Número" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<br>
+					<br>
+
+					<div style="display: flex;">
+
+						<div class="control-group" style="width: 49%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Complemento</label>
+								<input type="text" id="complementoid" name="complemento" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Complemento" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Bairro</label>
+								<input type="text" id="bairroid" name="bairro" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Bairro" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					</div>
+
+					<br>
+					<br>
+
+					<div class="control-group">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>CEP</label>
+								<input type="text" id="cepid" name="cep" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="CEP" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					<br>
+					<br>
+
+					<div style="display: flex;">
+
+						<div class="control-group" style="width: 49%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Cidade</label>
+								<input type="text" id="cidadeid" name="cidade" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Cidade" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+						<div class="control-group" style="width: 49%; margin-left: 2%;">
+							<div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+								<label>Estado</label>
+								<input type="text" id="estadoid" name="estado" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Estado" />
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<br>
+
+				<div class="form-group"><button class="btn btn-primary btn-xl" type="submit">SALVAR</button> </div>
+
+				<br>
+
+
+			</div>
+		</form>
+
+                <?php endif; ?> <!-- edição end -->
 
             </div>
+
             <br>
         </div>
 
@@ -620,7 +958,9 @@ if ($logado == "N" && $id_users == "") {
 
             <div style="width: 100%; border-radius: 5px; border-color: #117964; border-style: solid; padding: 15px;">
 
-                <h4 style="margin-top: 10px; color: #117964; margin-left: 10px;" for="filiacao">AVALIAÇÃO DO PACIENTE <i style="margin-left: 10px; color: #2C3E50; cursor: pointer;" class="far fa-edit"></i> </h4>
+                <h4 style="margin-top: 10px; color: #117964; margin-left: 10px;" for="filiacao">AVALIAÇÃO DO PACIENTE <i onClick="parent.location='resultadoConsulta.php?edit=3&cpf=<?php echo $cpf; ?>'" style="margin-left: 10px; color: #2C3E50; cursor: pointer;" class="far fa-edit"></i> </h4>
+
+                <?php if($_GET['edit'] != 3) : ?>
 
                 <div>
 
@@ -1633,6 +1973,1411 @@ if ($logado == "N" && $id_users == "") {
                     </div>
 
                 </div>
+
+                <?php endif; ?> <!--  -->
+
+                <!-- ------------------------------------------------------- -->
+
+                <?php if($_GET['edit'] == 3) : ?>
+
+                    <form name="meu_form" method="POST" action="class/EditAva.php">
+
+    <div>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>CPF do Paciente</label>
+          <input id="CPF_avaliacao" name="CPF_avaliacao" style="border-radius: 5px; padding-left: 10px;" class="form-control text-white" type="text" value="" placeholder="CPF do Paciente" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Nome do Paciente</label>
+          <input id="nomepacienteid" name="nomepaciente" style="border-radius: 5px; padding-left: 10px;" class="form-control text-white" type="text" value="" placeholder="Nome do Paciente" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Cadastro</label>
+          <input type="text" id="cadastroid" name="cadastro" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Cadastro" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Queixa Principal</label>
+          <input type="text" id="cadastroid" name="queixaprincipal" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Queixa Principal" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>História da doença atual</label>
+          <input type="text" id="2)historiadadoencaid" name="historiadadoenca" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="História da doença atual" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+
+    <div>
+      <br>
+      <div style="text-align: center;">
+        <h4 for="vquestionariodesaude">Questionário de Saúde</h4>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">1- Já Teve Hemorragia?</label>
+            <br>
+            <label>
+              <input type="radio" id="v1sid" name="v1" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v1nid" name="v1" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">2- Sofre(u) de alergia?</label>
+            <br>
+            <label>
+              <input type="radio" id="v2sid" name="v2" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v2nid" name="v2" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">3- Teve reumatismo infeccioso?</label>
+            <br>
+            <label>
+              <input type="radio" id="v3sid" name="v3" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v3nid" name="v3" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">4- Sofre(u) de distúrbio cardiovascular?</label>
+            <br>
+            <label>
+              <input type="radio" id="v4sid" name="v4" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v4nid" name="v4" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">5-Sofre(u) de gastrite?</label>
+            <br>
+            <label>
+              <input type="radio" id="v5sid" name="v5" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v5nid" name="v5" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">6- É diabético ou tem familiares diabéticos?</label>
+            <br>
+            <label>
+              <input type="radio" id="v6sid" name="v6" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v6nid" name="v6" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">7- Já desmaiou alguma vez?</label>
+            <br>
+            <label>
+              <input type="radio" id="v7sid" name="v7" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v7nid" name="v7" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">8- Está sob tratamento médico?</label>
+            <br>
+            <label>
+              <input type="radio" id="v8sid" name="v8" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v8nid" name="v8" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">9- Está tomando algum medicamento?</label>
+            <br>
+            <label>
+              <input type="radio" id="v9sid" name="v9" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v9nid" name="v9" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">10- Esteve doente ou foi operado nos últimos 5 anos?</label>
+            <br>
+            <label>
+              <input type="radio" id="v10sid" name="v10" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v10nid" name="v10" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">11- Tem hábitos,vícios ou manias?</label>
+            <br>
+            <label>
+              <input type="radio" id="v11sid" name="v11" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v11nid" name="v11" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">12- Tem ansiedade/depressão?</label>
+            <br>
+            <label>
+              <input type="radio" id="v12sid" name="v12" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v12nid" name="v12" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+    </div>
+
+    <div>
+      <br>
+      <br>
+
+      <div style="text-align: center;">
+        <h4 for="vquestionariodesaude">13-Você e/ou algum familiar teve algumas dessas doenças</h4>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Tuberculose</label>
+            <br>
+            <label>
+              <input type="radio" id="v13Tuberculosesid" name="v13Tuberculose" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v13Tuberculosenid" name="v13Tuberculose" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Sífilis</label>
+            <br>
+            <label>
+              <input type="radio" id="v13Sífilissid" name="v13Sífilis" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v13Sífilisnid" name="v13Sífilis" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Hepatite A, B, C</label>
+            <br>
+            <label>
+              <input type="radio" id="v13HepatiteABCsid" name="v13HepatiteABC" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v13HepatiteABCnid" name="v13HepatiteABC" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">SIDA/AIDS</label>
+            <br>
+            <label>
+              <input type="radio" id="v13SIDA/AIDSsid" name="v13SIDA/AIDS" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v13HSIDA/AIDSnid" name="v13SIDA/AIDS" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Sarampo</label>
+            <br>
+            <label>
+              <input type="radio" id="v13Saramposid" name="v13Sarampo" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v13Saramponid" name="v13Sarampo" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Caxumba</label>
+            <br>
+            <label>
+              <input type="radio" id="v13Caxumbasid" name="v13Caxumba" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v13Caxumbanid" name="v13Caxumba" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Varicela</label>
+            <br>
+            <label>
+              <input type="radio" id="v13Varicelasid" name="v13Varicela" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v13Varicelanid" name="v13Varicela" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Outras</label>
+            <br>
+            <label>
+              <input type="radio" id="v13outrassid" name="v13outras" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v13outrasnid" name="v13outras" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+    </div>
+
+    <div>
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">14- É fumante?</label>
+            <br>
+            <label>
+              <input type="radio" id="v14sid" name="v14" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="v14nid" name="v14" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Frequência:</label>
+          <input type="text" id="frequenciaid" name="frequencia" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Frequência" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <br>
+      <br>
+
+      <div style="text-align: center;">
+        <h4 for="vquestionariodesaude">Questionário complementar infantil - ODONTOPEDIATRIA</h4>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>1- História da gestação:</label>
+          <input type="text" id="va1-Históriadagestação:id" name="va1_Históriadagestação" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="História da gestação" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">2- Nasceu de parto:</label>
+            <br>
+            <label>
+              <input type="radio" id="va2normalid" name="va2" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="va2aforcaid" name="va2" value="Aforca"> A força
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="va2cesarianaid" name="va2" value="Cesariana"> Cesariana
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">3- A criança teve algum problema no parto?</label>
+            <br>
+            <label>
+              <input type="radio" id="va3sid" name="va3" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="va3nid" name="va3" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">4-A amamentação foi: </label>
+            <br>
+            <label>
+              <input type="radio" id="va4naturalid" name="va4" value="Natural"> Natural
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="va4mamadeiraid" name="va4" value="Mamadeira"> Mamadeira
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>até a idade de :</label>
+          <input type="text" id="ateaidadedeid" name="ateaidadede" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="até a idade de" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">5 -Já lhe foi dito para não tomar anestesia local? </label>
+            <br>
+            <label>
+              <input type="radio" id="va5sid" name="va5" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="va5nid" name="va5" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">6- Já teve ou viveu com alguém que tivesse doença grave e contagiosa?</label>
+            <br>
+            <label>
+              <input type="radio" id="va6sid" name="va6" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="va6nid" name="va6" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">7-A criança já foi vacinada?</label>
+            <br>
+            <label>
+              <input type="radio" id="va7sid" name="va7" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="va7nid" name="va7" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+    </div>
+
+    <div>
+      <br>
+      <br>
+
+      <div style="text-align: center;">
+        <h4 for="vquestionariodesaude">CONDUTA DA CRIANÇA</h4>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Durante os 2 primeiros anos de vida:</label>
+            <br>
+            <label>
+              <input type="radio" id="sentou-seid" name="primeirosanos" value="Sentou"> Sentou-se
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="engatinhouid" name="primeirosanos" value="Engatinhou"> Engatinhou
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="andouid" name="primeirosanos" value="Andou"> Andou
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="falouid" name="primeirosanos" value="Falou"> Falou
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">No lar e na escola: teve alguma dificuldade no aprendizado?</label>
+            <br>
+            <label>
+              <input type="radio" id="Aprendizadosid" name="dificuldadeAprentizado"  value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Apendizadonid" name="dificuldadeAprentizado" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Estado anímico: </label>
+            <br>
+            <label>
+              <input type="radio" id="Alegreid" name="Estadoanímico" value="Alegre"> Alegre
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Tristeid" name="Estadoanímico" value="Triste"> Triste
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Tímidoid" name="Estadoanímico" value="Timido"> Tímido
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Tranquiloid" name="Estadoanímico" value="Tranquilo"> Tranquilo
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Inquietoid" name="Estadoanímico" value="Inquieto"> Inquieto
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Assustadoid" name="Estadoanímico" value="Assustado"> Assustado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Tem sono:</label>
+            <br>
+            <label>
+              <input type="radio" id="Tranquiloid" name="sono" value="Tranquilo"> Tranquilo
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Intranquiloid" name="sono" value="Intranquilo"> Intranquilo
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Terrornoturnoid" name="sono" value="TNoturno"> Terror noturno
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Pesadelosid" name="sono" value="Pesadelo"> Pesadelos
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Sonambulismoid" name="sono" value="Sonambulo"> Sonambulismo
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Insoniaid" name="sono" value="Insonia"> Insônia
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Conduta psicomotora: </label>
+            <br>
+            <label>
+              <input type="radio" id="Insoniaid" name="psicomotora" value="PostNrml"> Postura normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Posturaalteradaid" name="psicomotora" value="PostAltr"> Postura alterada
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Fonaçãonormalid" name="psicomotora" value="FonacaoNrml"> Fonação normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Distúrbiosdafalaid" name="psicomotora" value="DisturbFala"> Distúrbios da fala
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Algumaparalisiaid" name="psicomotora" value="Paralisia"> Alguma paralisia
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Enuresenoturnaid" name="psicomotora" value="EnureseNot"> Enurese noturna
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Descontroledosesfínctereid" name="psicomotora" value="DescEsfin"> Descontrole dos esfíncteres
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Alimentação: </label>
+            <br>
+            <label>
+              <input type="radio" id="Rejeitaid" name="Alimentação" value="Rejeita"> Rejeita
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Alimenta-senormalmenteid" name="Alimentação" value="AlimeNorm"> Alimenta-se normalmente
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Supraalimenta-seid" name="Alimentação" value="SupraAlim"> Supra alimenta-se
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Sociabilidade: </label>
+            <br>
+            <label>
+              <input type="radio" id="Isoladaid" name="Sociabilidade" value="Isolada"> Isolada
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Agressivaid" name="Sociabilidade" value="Agressiva"> Agressiva
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Relaçõesnormaisid" name="Sociabilidade" value="RelacaoNorm"> Relações normais
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Apresenta alguma patologia de conduta: </label>
+            <br>
+            <label>
+              <input type="radio" id="Tiquesid" name="patologia" value="Tiques"> Tiques
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Fobiasid" name="patologia" value="Fobias"> Fobias
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Ansiedadeid" name="patologia" value="Ansiedade"> Ansiedade
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Medoid" name="patologia" value="Medo"> Medo
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Birraid" name="patologia" value="Birra"> Birra
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Ciumesid" name="patologia" value="Ciumes"> Ciúmes
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Observações :</label>
+          <input type="text" id="Observaçõesid" name="Observações" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Observações" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <br>
+      <br>
+
+      <div style="text-align: center;">
+        <h4 for="vquestionariodesaude"> Exame Físico</h4>
+      </div>
+
+      <label for="valexamefisico"></label>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">1 - Lábios:</label>
+            <br>
+            <label>
+              <input type="radio" id="val1nid" name="val1" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val1aid" name="val1" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">2 - Mucosa Jugal</label>
+            <br>
+            <label>
+              <input type="radio" id="val2nid" name="val2" value="Normal">Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val2aid" name="val2" value="Alterado">Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">3 - Língua</label>
+            <br>
+            <label>
+              <input type="radio" id="val3nid" name="val3" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val3aid" name="val3" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">4 - Soalho da boca</label>
+            <br>
+            <label>
+              <input type="radio" id="val4nid" name="val4" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val4aid" name="val4" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>  
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">5 - Palato duro</label>
+            <br>
+            <label>
+              <input type="radio" id="val5nid" name="val5" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val5aid" name="val5" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div> 
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">6 - Garganta</label>
+            <br>
+            <label>
+              <input type="radio" id="val6nid" name="val6" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val6aid" name="val6" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div> 
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">7 - Palato mole</label>
+            <br>
+            <label>
+              <input type="radio" id="val7nid" name="val7" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val7aid" name="val7" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div> 
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">8 - Mucosa Alveolar</label>
+            <br>
+            <label>
+              <input type="radio" id="val8nid" name="val8" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val8aid" name="val8" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">9 - Gengivas</label>
+            <br>
+            <label>
+              <input type="radio" id="val9nid" name="val9" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val9aid" name="val9" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">10 - Glândulas Salivares</label>
+            <br>
+            <label>
+              <input type="radio" id="val10nid" name="val10" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val10aid" name="val10" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">11 - Linfonodos</label>
+            <br>
+            <label>
+              <input type="radio" id="val11nid" name="val11" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val11aid" name="val11" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">12 - ATM</label>
+            <br>
+            <label>
+              <input type="radio" id="val12nid" name="val12" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val12aid" name="val12" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">13 - Músculos Mastigadores</label>
+            <br>
+            <label>
+              <input type="radio" id="val13nid" name="val13" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val13aid" name="val13" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">14 - Oclusão</label>
+            <br>
+            <label>
+              <input type="radio" id="val14nid" name="val14" value="Normal"> Normal
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="val14aid" name="val14" value="Alterado"> Alterado
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Alterações encontradas :</label>
+          <input type="text" id="Alteraçõesencontradasid" name="Alteraçõesencontradas" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Alterações encontradas" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <br>
+      <br>
+
+      <div style="text-align: center;">
+        <h4 for="vquestionariodesaude">5) PRESSÃO ARTERIAL</h4>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Máxima (mmHG) :</label>
+          <input type="text" id="maximaid" name="maxima" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Máxima (mmHG)" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Mínima (mmHG) :</label>
+          <input type="text" id="minimaid" name="minima" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Mínima (mmHG)" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Diagnóstico presuntivo:</label>
+          <input type="text" id="Diagnosticopresuntivoid" name="Diagnosticopresuntivo" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Diagnóstico presuntivo" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Exames complementares:</label>
+          <input type="text" id="Examescomplementaresid" name="Examescomplementares" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Exames complementares" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Diagnóstico definitivo:</label>
+          <input type="text" id="Diagnosticodefinitivoid" name="Diagnosticodefinitivo" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Diagnóstico definitivo" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Tratamento/Proservação:</label>
+          <input type="text" id="Tratamento/Proservaçãoid" name="TratamentoProservação" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Tratamento/Proservação" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Plano de Tratamento:</label>
+          <input type="text" id="PlanodeTratamentoid" name="PlanodeTratamentoid" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Plano de Tratamento" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <br>
+      <br>
+
+      <input type="checkbox" id="AtendimentoDeUrgenciaid" name="AtendimentoDeUrgencia" value="AtendimentoDeUrgencia">
+      <label for="AtendimentoDeUrgenciaid">Atendimento de Urgência (Estágio Sup. em Clínica Odontológica Integrada – URGÊNCIA)</label>
+      <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+
+      <br>
+      <br>
+
+      <div>
+        <div class="control-group">
+          <div class="form-group controls mb-0 pb-2" style="text-align: left;">
+            <label for="sexo">Medicação</label>
+            <br>
+            <label>
+              <input type="radio" id="Medicacaosid" name="Medicacao" value="Sim"> Sim
+            </label>
+            <label style="margin-left: 20px;">
+              <input type="radio" id="Medicacaonid" name="Medicacao" value="Nao"> Não
+            </label>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        <div style="height: 1px; width: 100%; background-color: #ebebeb;"></div>
+      </div>
+
+      <br>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2" style="text-align: left;">
+          <label>Qual medicação?</label>
+          <input type="text" name="tipoMedicacao" style="border-radius: 5px; padding-left: 10px;" class="form-control" required="required" placeholder="Se sim, qual medicação?" />
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+    <br>
+
+
+    <div class="form-group" style="width: 100%; text-align: center;"><button class="btn btn-primary btn-xl" type="submit">Salvar</button> </div>
+
+    <br>
+    <br>
+
+  </form>
+
+                <?php endif; ?> <!-- edição end -->
+
                 <br>
 
             </div>
