@@ -1,0 +1,9 @@
+Cria um banco com o nome: postLogin
+
+No código o usuario padrão do DB é root, e sem senha.
+
+Importar o banco BancoDeDados.sql que esta no diretorio principal do projeto.
+
+------------------
+By: Daniel e João
+------------------
