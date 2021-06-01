@@ -1516,7 +1516,7 @@ if ($logado == "N" && $id_users == "") {
           <p class="lead mb-0">
             Daniel S. Saluceste <br>
             João Renato Repker Voros <br>
-            Endrio
+             
           </p>
         </div>
       </div>
